@@ -19,3 +19,6 @@
 - PHP-FPM 8.2
 - NginX 1.27
 - Laravel 9.47.0
+
+### Useful commands
+- ```docker compose down -v --rmi all --remove-orphans``` for completly drop of the containers

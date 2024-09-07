@@ -24,7 +24,7 @@ services:
   # PhpMyAdmin Service
   phpmyadmin:
     container_name: phpmyadmin-container
-    image: phpmyadmin/phpmyadmin:5
+    image: phpmyadmin:5-fpm-alpine
     ports:
       - 8080:80
     networks:
@@ -32,6 +32,8 @@ services:
         ipv4_address: 192.168.10.3
     environment:
       PMA_HOST: mysql
+    volumes:
+      - phpmyadmindata:/var/www/html
     depends_on:
       mysql:
         condition: service_healthy
@@ -40,9 +42,9 @@ services:
   php:
     container_name: php-container
     build: ./.docker/php
-    working_dir: /var/www/html
+    working_dir: /var/www/php
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www/php
     networks:
       ventamed-network:
         ipv4_address: 192.168.10.4
@@ -53,21 +55,24 @@ services:
   # Nginx Service
   nginx:
     container_name: nginx-container
-    image: nginx:1.27
+    image: nginx:1.27-alpine
     ports:
       - 80:80
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www/php
       - ./.docker/nginx/conf.d:/etc/nginx/conf.d
+      - phpmyadmindata:/var/www/phpmyadmin
     networks:
       ventamed-network:
         ipv4_address: 192.168.10.5
     depends_on:
       - php
+      - phpmyadmin
 
 # Volumes
 volumes:
   mysqldata:
+  phpmyadmindata:
 
 #Networks
 networks:
