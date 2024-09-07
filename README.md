@@ -1,7 +1,9 @@
 # Laravel Ventamed Application
 
 ## Steps for execute in Windows
-- Fill the  ```.env.docker.example``` and the ```.env.example``` files with the database's credentials. The database name, user and password has to be the same for both files.
+- Fill the  ```.env.docker.example``` and the ```.env.example``` files with the database's credentials.
+  - The database name, user and password has to be the same for both files.
+  - It's recommended that the root password variable be different from that of the user.
 - Run the ```configure.bat``` file.
 - Execute ```docker compose pull``` and later ```docker compose up``` commands.
 - When the containers be ready, run the ```post_configure.bat``` file.
