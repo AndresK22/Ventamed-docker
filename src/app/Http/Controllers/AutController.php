@@ -24,7 +24,7 @@ class AutController extends Controller
     public function index()
     {
         try{
-            $usuarios = User::all()->first();
+            $usuarios = User::pluck('id');
             if($usuarios == null){
                 return redirect()->route('register')->with('status','Debe crear un usuario para utilizar el sistema');
             }else{
@@ -129,6 +129,7 @@ class AutController extends Controller
             ->get();
 
             return view('dashboard', compact('salidas', 'medicamentos', 'masVendidos', 'menosVendidos'));
+            //return view('dashboard', compact('salidas', 'medicamentos'));
         }catch(Exception $e){
             return $e->getMessage();
         }
