@@ -15,10 +15,12 @@
 
 ### About Application
 - MySQL 9.0
-- PHPMyAdmin 5
+- Redis 7.4
+- PHPMyAdmin 5.2.1
 - PHP-FPM 8.2
 - NginX 1.27
 - Laravel 9.47.0
 
 ### Useful commands
 - ```docker compose down -v --rmi all --remove-orphans``` for completly drop of the containers
+- ```mysql -u username -p databasename < dump.sql``` in the mysql container, for import database from a sql file.

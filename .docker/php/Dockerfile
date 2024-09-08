@@ -15,9 +15,3 @@ RUN php composer-setup.php
 RUN php -r "unlink('composer-setup.php');"
 #Add Compose to the PATH
 RUN mv composer.phar /usr/local/bin/composer
-
-#Install Laravel libraries
-RUN composer global require laravel/installer
-RUN composer require mike42/escpos-php
-RUN composer require spatie/laravel-permission
-RUN composer require tightenco/ziggy

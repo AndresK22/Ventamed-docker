@@ -8,4 +8,5 @@ copy ".env.docker.example" ".env"
 
 echo .env files created successfully.
 
+pause
 exit
