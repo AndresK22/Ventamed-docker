@@ -24,7 +24,7 @@ class AutController extends Controller
     public function index()
     {
         try{
-            $usuarios = User::pluck('id');
+            $usuarios = User::all()->first();
             if($usuarios == null){
                 return redirect()->route('register')->with('status','Debe crear un usuario para utilizar el sistema');
             }else{

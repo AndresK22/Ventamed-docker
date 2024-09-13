@@ -15,10 +15,10 @@ echo "-- Install Laravel libraries"
 # Instalar dependencias de Composer
 # docker exec -i php-container composer install --prefer-dist --no-dev -o
 
-docker exec -i php-container composer require predis/predis
-docker exec -i php-container composer require mike42/escpos-php
-docker exec -i php-container composer require spatie/laravel-permission
-docker exec -i php-container composer require tightenco/ziggy
+#docker exec -i php-container composer require predis/predis
+#docker exec -i php-container composer require mike42/escpos-php
+#docker exec -i php-container composer require spatie/laravel-permission
+#docker exec -i php-container composer require tightenco/ziggy
 
 # Configurar la aplicación Laravel
 echo "-- Configuring Laravel config"

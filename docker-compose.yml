@@ -21,6 +21,7 @@ services:
       interval: 5s
       retries: 10
 
+  # Redis Service
   redis:
     container_name: redis-container
     image: redis:7.4-alpine
